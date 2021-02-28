@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 #include "quick.h"
 
 #define QUICKSORT quicksort
@@ -30,11 +32,12 @@ static void list_display(node_t *list) {
 }
 
 int main(int argc, char **argv) {
+    srand48(time(NULL));
     size_t count = 20;
 
     node_t *list = NULL;
     while (count--)
-        list = list_make_node_t(list, random() % 1024);
+        list = list_make_node_t(list, lrand48() % 1024);
 
     list_display(list);
     QUICKSORT(&list);
