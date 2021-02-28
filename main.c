@@ -40,9 +40,9 @@ int main(int argc, char **argv) {
     QUICKSORT(&list);
     list_display(list);
 
-    if (!list_is_ordered(list))
-        return EXIT_FAILURE;
+    const bool ordered = list_is_ordered(list);
 
     list_free(&list);
-    return EXIT_SUCCESS;
+
+    return ordered ? EXIT_SUCCESS : EXIT_FAILURE;
 }
